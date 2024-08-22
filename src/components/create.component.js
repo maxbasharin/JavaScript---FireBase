@@ -24,13 +24,12 @@ async function submitHandler(event) {
   if (this.form.isValid()) {
     const formData = {
       type: this.$el.type.value,
-      date: new Date().toLocaleString(),
+      date: new Date().toLocaleDateString(),
       ...this.form.value()
     }
- 
+
     await apiService.createPost(formData)
     this.form.clear()
     alert('Запись создана в базе данных')
-
-  } 
+  }
 }
